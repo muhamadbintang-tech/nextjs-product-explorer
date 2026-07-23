@@ -5,6 +5,7 @@ import { Product } from '@/types/product';
 import { getProductById } from '@/lib/api';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
+import LoadingSkeleton from '@/components/common/LoadingSkeleton';
 import Link from 'next/link';
 
 interface ProductDetailPageProps {
@@ -56,17 +57,10 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
         </Link>
 
         {isLoading ? (
-          /* Loading Skeleton */
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 animate-pulse bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-sm">
-            <div className="w-full h-96 bg-slate-100 rounded-xl"></div>
-            <div className="space-y-4 py-4">
-              <div className="h-6 bg-slate-100 rounded w-1/3"></div>
-              <div className="h-8 bg-slate-100 rounded w-3/4"></div>
-              <div className="h-20 bg-slate-100 rounded w-full"></div>
-            </div>
-          </div>
+          /* Loading Spinner Clean di Tengah */
+          <LoadingSkeleton />
         ) : isNotFound || !product ? (
-          /* Tampilan Jika Produk Tidak Ditemukan (Tanpa Halaman 404) */
+          /* Tampilan Jika Produk Tidak Ditemukan */
           <div className="bg-white p-10 rounded-2xl border border-slate-200/80 text-center max-w-lg mx-auto my-12 shadow-sm">
             <div className="text-4xl mb-3">🔍</div>
             <h2 className="text-lg font-bold text-slate-900 mb-2">Produk Tidak Ditemukan</h2>
@@ -82,7 +76,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
           </div>
         ) : (
           /* Render Detail Produk Clean White */
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-sm animate-in fade-in duration-300">
             {/* Display Frame Gambar Produk */}
             <div className="relative w-full h-[420px] bg-slate-50/80 rounded-xl overflow-hidden border border-slate-100 flex items-center justify-center p-6">
               <img

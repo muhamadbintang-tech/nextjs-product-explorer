@@ -1,17 +1,22 @@
 export default function LoadingSkeleton() {
   return (
-    <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 animate-pulse">
-      {[...Array(8)].map((_, i) => (
-        <div key={i} className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-4 space-y-4">
-          <div className="w-full h-52 bg-zinc-800/60 rounded-xl"></div>
-          <div className="h-4 bg-zinc-800/60 rounded w-3/4"></div>
-          <div className="h-3 bg-zinc-800/40 rounded w-1/2"></div>
-          <div className="pt-2 flex justify-between items-center border-t border-zinc-800/50">
-            <div className="h-5 bg-zinc-800/60 rounded w-1/3"></div>
-            <div className="h-8 bg-zinc-800/60 rounded-lg w-20"></div>
-          </div>
-        </div>
-      ))}
+    <div className="w-full min-h-[50vh] bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-16 flex flex-col items-center justify-center shadow-sm my-2 transition-all">
+      {/* Container Ikon Berputar di Tengah */}
+      <div className="relative flex items-center justify-center mb-5">
+        {/* Ring Outer Pulse (Efek Gelombang Ringan) */}
+        <div className="w-14 h-14 rounded-full border-2 border-indigo-100 animate-ping absolute opacity-50"></div>
+        
+        {/* Icon Lingkaran Berputar (Spinner Clean) */}
+        <div className="w-10 h-10 rounded-full border-3 border-slate-200 border-t-slate-900 animate-spin"></div>
+      </div>
+
+      {/* Teks Loading Minimalis */}
+      <div className="flex items-center gap-1">
+        <span className="text-xs font-bold text-slate-600 tracking-widest uppercase animate-pulse">
+          Memuat Produk
+        </span>
+        <span className="text-xs font-bold text-slate-400 animate-bounce">...</span>
+      </div>
     </div>
   );
 }

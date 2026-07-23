@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛍️ Abinshop - Next.js Product Explorer
 
-## Getting Started
+**Abinshop** adalah aplikasi pencarian dan eksplorasi katalog produk modern yang responsif dan interaktif. Aplikasi ini dirancang untuk memberikan pengalaman eksplorasi produk yang bersih (*clean white UI*), cepat, dan intuitif bagi pengguna.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Fitur Utama
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Katalog Produk Interaktif:** Menampilkan daftar produk pilihan dalam bentuk *grid card* yang rapi.
+- **Pencarian Real-time:** Fitur pencarian produk berdasarkan nama, merek, atau kata kunci secara instan.
+- **Filter Kategori:** Memudahkan pengguna menyaring produk berdasarkan kategori tertentu.
+- **Halaman Detail Produk:** Menampilkan informasi produk secara rinci seperti harga, rating, jumlah stok, hingga deskripsi lengkap.
+- **Indicator Loading & Skeleton UI:** Pengalaman pengguna yang mulus saat memuat data (*fetching*) tanpa efek *flicker*.
+- **Desain Responsif:** Tampilan adaptif yang nyaman diakses dari perangkat *Desktop*, *Tablet*, maupun *Mobile/Smartphone*.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Teknologi yang Digunakan
 
-## Learn More
+- **Framework:** Next.js 16 (App Router)
+- **Library UI:** React 19
+- **Styling:** Tailwind CSS v4
+- **Bahasa Pemrograman:** TypeScript
+- **API Source:** DummyJSON Product API
+- **Code Quality:** ESLint
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Struktur Project
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```text
+nextjs-product-explorer/
+├── public/                 # Asset statis (gambar, favicon, logo)
+├── src/
+│   ├── app/                # Next.js App Router (Halaman & Layout)
+│   │   ├── globals.css     # Style global & konfigurasi Tailwind
+│   │   ├── layout.tsx      # Root layout aplikasi
+│   │   ├── page.tsx        # Halaman Utama (Katalog Produk)
+│   │   └── product/
+│   │       └── [id]/
+│   │           └── page.tsx # Halaman Detail Produk
+│   ├── components/         # Komponen UI Reusable
+│   │   ├── common/         # Header, Footer, LoadingSkeleton
+│   │   └── products/       # ProductCard, ProductFilter, dll.
+│   ├── lib/                # Fungsi fetching API & helper
+│   └── types/              # Definisi tipe/interface TypeScript
+├── next.config.ts          # Konfigurasi Next.js
+├── package.json            # Dependensi proyek
+└── README.md               # Dokumentasi proyek
